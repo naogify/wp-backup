@@ -21,17 +21,16 @@ zip -r $(date +%Y%m%d%H%M%S) plugins/ themes/ uploads/ wordpress.sql
 rm -r plugins/ themes/ uploads/ wordpress.sql
 
 FILE_NUM=$(find ./ -name "*.zip" | wc -l)
+ZIP=($(find ./ -name "*.zip" -type f | sort -n))
 
 if [ $FILE_NUM -gt 1  ]; then
 
-  declare -A ZIP;
-  ZIP=$(find ./ -name "*.zip" -type f)
-
-  for item in ${ZIP[@]}; do
-    echo ZIP[$(stat --printf=%Z $item)]=$item
-  done
+rm ${ZIP[0]}
+unset ZIP[0]
+ZIP=("${ZIP[@]}")
 
 fi
+
 
 wp core update
 wp plugin update --all
