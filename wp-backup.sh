@@ -4,16 +4,17 @@ set -ex
 
 # PLEASE SET MAXIMUM NUMBER OF BUCKUP DATA.
 BACKUP_NUM=1
+# PLEASE SET THE PATH TO WordPress.
+BASE_DIR=~/apps/wordpress/htdocs
 
 wp cli update --yes
 
-BASE_DIR=~/apps/wordpress/htdocs
 cd ${BASE_DIR}
 
 # create wp-backup directory.
 if [ ! -e wp-backup/ ]; then
   mkdir wp-backup
-  mv maintanance.sh wp-backup/
+  mv wp-backup.sh wp-backup/
 fi
 
 # copy files to backup.
