@@ -3,7 +3,7 @@
 set -ex
 
 # PLEASE SET MAXIMUM NUMBER OF BUCKUP DATA.
-BACKUP_NUM=30
+BACKUP_NUM=1
 # PLEASE SET THE PATH TO WordPress.
 BASE_DIR=~/apps/wordpress/htdocs
 
