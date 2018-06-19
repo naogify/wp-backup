@@ -2,7 +2,7 @@
 
 set -ex
 
-# please set maximam number of buckup data.
+# PLEASE SET MAXIMUM NUMBER OF BUCKUP DATA.
 BACKUP_NUM=1
 
 wp cli update --yes
