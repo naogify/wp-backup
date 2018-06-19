@@ -3,7 +3,7 @@
 set -ex
 
 # please set maximam number of buckup data.
-MAX_NUM_BACKUP=1
+BACKUP_NUM=1
 
 wp cli update --yes
 
@@ -31,12 +31,14 @@ rm -r plugins/ themes/ uploads/ wordpress.sql
 
 
 FILE_NUM=$(find ./ -name "*.zip" | wc -l)
+#get .zip files by find, and sort by number.
 ZIP=($(find ./ -name "*.zip" -type f | sort -n))
 
 # if the number of backup data is more than limit, delete oldest one.
-if [ $FILE_NUM -gt 1  ]; then
+if [ $FILE_NUM -gt $BACKUP_NUM  ]; then
   rm ${ZIP[0]}
-  unset ${ZIP[0]}
+  unset ZIP[0]
+  #Put data to array again because unset just makes it's value empty.
   ZIP=("${ZIP[@]}")
 fi
 
