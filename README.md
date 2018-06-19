@@ -6,7 +6,7 @@
 - Crontab
 
 ## How it works
-This shell script creates directory wp-backup/, and make zip file of `plugins/` `themes/` `uploads/` `wordpress.sql`(Exported mysql data).
+This shell script creates the directory `wp-backup/`, and makes the zip file that includes `plugins/` `themes/` `uploads/` `wordpress.sql`(Exported mysql data).
 Also you can set the maximum number of zip files. This script will delete oldest zip file when file's number reaches the limit.
 
 
